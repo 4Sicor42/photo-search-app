@@ -8,14 +8,33 @@ function SearchForm({ onSearch }) {
     onSearch(searchQuery);
   };
 
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      handleSearch();
+    }
+  };
+
+  const clearInput = () => {
+    setSearchQuery('');
+  };
+
   return (
     <div className="search-form">
-      <input
-        type="text"
-        placeholder="Search..."
-        value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
-      />
+      <div className="input-container">
+        <input
+          autoFocus
+          type="text"
+          placeholder="Search..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          onKeyPress={handleKeyPress}
+        />
+        {searchQuery && (
+          <span className="clear-button" onClick={clearInput}>
+            &times;
+          </span>
+        )}
+      </div>
       <button onClick={handleSearch}>Search</button>
     </div>
   );

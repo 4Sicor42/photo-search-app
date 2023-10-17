@@ -1,109 +1,179 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@1,300&display=swap');
+/* src/App.css */
 body {
-    font-family: 'Ubuntu', sans-serif;
-    font-size: 14;
-    margin: 1;
-    padding: 0;
-    background-color: #9EDDFF;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+  background-color: #9EDDFF;
+  transition-duration: 0.4s;
 }
 
 header {
-    background-color: #6499E9;
-    color: #ffffff;
-    text-align: center;
-    padding: 20px 0;
+  background-color: #6499E9;
+  color: #ffffff;
+  text-align: center;
+  padding: 20px 0;
 }
 
 h1 {
-    margin: 0;
-    font-size: 24px;
-    padding-bottom: 20px;
+  margin: 0;
+  font-size: 24px;
+  padding-bottom: 20px;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
 input[type="text"] {
-    padding: 10px;
-    font-family: 'Ubuntu', sans-serif;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
+  padding: 10px;
+  padding-bottom: 10px;
+  font-family: 'Ubuntu', sans-serif;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
 }
 
 button {
-    padding: 10px 20px;
-    background-color: #0074d9;
-    color: #ffffff;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-left: 10px;
+  padding: 10px 20px;
+  background-color: #0074d9;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 10px;
 }
 
 button:hover {
-        transition-duration: 0.4s;
-        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  transition-duration: 0.4s;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
-/* Стили для фото и контейнера фото */
 main {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 20px;
-    background-color: #A6F6FF;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+  background-color: #A6F6FF;
 }
 
 .photo {
-    margin: 10px;
-    padding: 10px;
-    background-color: #ffffff;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: center;
+  margin: 10px;
+  padding: 10px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
 .photo img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
 }
 
 .photo img:hover {
-        transition-duration: 0.4s;
-        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  transition-duration: 0.4s;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
 .photo p {
-    margin: 10px 0;
-    font-size: 14px;
+  margin: 10px 0;
+  font-size: 14px;
 }
 
-/* Стили для футера */
 footer {
-    background-color: #6499E9;
-    color: #ffffff;
-    text-align: center;
-    padding: 10px 0;
+  background-color: #6499E9;
+  color: #ffffff;
+  text-align: center;
+  padding: 10px 0;
 }
 
 a {
-    color: #ffffff;
-    text-decoration: none;
+  color: #ffffff;
+  text-decoration: none;
 }
 
-/* крестик */
-#searchInput {
-    position: relative;
-    padding-right: 40px; /* Добавим небольшой правый отступ, чтобы крестик был виден */
-    transition-duration: 0.35s;
-    cursor: auto;
+.search-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  position: relative; /* Добавляем относительное позиционирование */
 }
 
-#searchInput.hasValue {
-    background-image: url('cross.png'); /* Путь к изображению крестика */
-    background-repeat: no-repeat;
-    background-position:  center right; /* Переносим крестик по центру вертикали */
-    padding-left: 10px;
-    background-size: 20px; /* Задаем размер крестика */
-    cursor: pointer;
+.input-container {
+  position: relative;
+}
+
+
+/* Стили для крестика */
+.clear-button {
+  position: absolute;
+  top: 40%; /* Располагаем крестик по центру вертикали */
+  right: 5px; /* Отступ справа */
+  transform: translateY(-50%); /* Смещаем на половину высоты кнопки вверх */
+  font-size: 36px;
+  color: #777;
+  cursor: pointer;
+  display: none; /* Скрываем крестик по умолчанию */
+}
+
+.clear-button:hover {
+  color: #6499E9; /* Изменяем цвет крестика при наведении */
+}
+
+/* Показываем крестик, когда есть текст в поле ввода */
+.input-container input[type="text"]:not(:placeholder-shown) + .clear-button {
+  display: block;
+}
+
+
+/* Стили для поля ввода */
+.input-container input[type="text"] {
+  padding: 10px;
+  font-family: 'Ubuntu', sans-serif;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  padding-right: 30px; /* Добавляем место для крестика */
+}
+
+
+/* Для экранов с шириной от 1440px и выше */
+@media (min-width: 1440px) {
+  .search-form {
+     max-width: 100%; /* Устанавливаем максимальную ширину для поисковой формы */
+  }
+}
+
+/* Для экранов с шириной от 1024px до 1439px */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .search-form {
+     max-width: 90%; /* Устанавливаем максимальную ширину для поисковой формы */
+  }
+}
+
+/* Для экранов с шириной от 768px до 1023px */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .search-form {
+     max-width: 80%;; /* Устанавливаем максимальную ширину для поисковой формы */
+  }
+}
+
+/* Для экранов с шириной от 320px до 767px */
+@media (min-width: 320px) and (max-width: 767px) {
+  .search-form {
+    max-width: 60%; /* Устанавливаем максимальную ширину для поисковой формы */
+  }
+
+  .photo {
+    width: calc(50% - 20px); /* Устанавливаем ширину фотографий на 50% экрана с отступами */
+  }
 }
