@@ -25,13 +25,14 @@ function App() {
     <div className="App">
       <Header />
       <SearchForm onSearch={handleSearch} />
-      <main>
-        {photos.length > 0 ? (
+      <div className="no-photo">
+        {photos.length >= 0 ? <main>{
+          (
           photos.map((photo, index) => <Photo key={index} photo={photo} />)
-        ) : (
+        )}</main> : (
           <NoResults />
         )}
-      </main>
+      </div>
       <Footer />
     </div>
   );
