@@ -19,6 +19,12 @@ function App() {
       setPhotos(searchResults);
     }
   };
+
+  const clearPhotos = () => {
+    document.querySelectorAll('.photo').forEach(photo => photo.style.display = 'none');
+  };
+
+
   useEffect(() => {
     // Здесь можно добавить код, который нужно выполнить после загрузки компонента
     handleSearch('');

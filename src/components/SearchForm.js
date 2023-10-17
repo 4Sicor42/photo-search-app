@@ -1,7 +1,6 @@
-// src/components/SearchForm.js
 import React, { useState } from 'react';
 
-function SearchForm({ onSearch }) {
+function SearchForm({ onSearch, onClearPhotos }) {
   const [searchQuery, setSearchQuery] = useState('');
 
   const handleSearch = () => {
@@ -17,14 +16,6 @@ function SearchForm({ onSearch }) {
   const clearInput = () => {
     setSearchQuery('');
   };
-
-  const handleRemovePhotos = () => {
-  const photoElements = document.querySelectorAll('.photo');
-  photoElements.forEach((element) => {
-    element.remove();
-  });
-};
-
 
   return (
     <div className="search-form">
@@ -44,7 +35,10 @@ function SearchForm({ onSearch }) {
         )}
       </div>
       <button onClick={handleSearch}>Search</button>
-      <button onClick={handleRemovePhotos}>Remove Photos</button>
+     /* <button onClick={handleClearPhotos}>Clear Photos</button>
+     /* const handleClearPhotos = () => {
+    /*document.querySelectorAll('.photo').forEach(photo => photo.style.display = 'none');
+  };
     </div>
   );
 }
