@@ -3,7 +3,7 @@ import React from 'react';
 
 function NoResults() {
   return (
-    <div className="photo">
+    <div className="no-photo">
       <p>No photos found.</p>
     </div>
   );

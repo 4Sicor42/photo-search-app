@@ -7,7 +7,7 @@ function Footer() {
       <a href="https://github.com/4Sicor42" target="_blank" rel="noreferrer">
          GitHub 
       </a>
-      <span id="year">{new Date().getFullYear()}</span>
+      <span id="year"> {new Date().getFullYear()}</span>
     </footer>
   );
 }
