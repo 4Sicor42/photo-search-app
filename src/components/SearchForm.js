@@ -18,6 +18,14 @@ function SearchForm({ onSearch }) {
     setSearchQuery('');
   };
 
+  const handleRemovePhotos = () => {
+  const photoElements = document.querySelectorAll('.photo');
+  photoElements.forEach((element) => {
+    element.remove();
+  });
+};
+
+
   return (
     <div className="search-form">
       <div className="input-container">
@@ -36,6 +44,7 @@ function SearchForm({ onSearch }) {
         )}
       </div>
       <button onClick={handleSearch}>Search</button>
+      <button onClick={handleRemovePhotos}>Remove Photos</button>
     </div>
   );
 }

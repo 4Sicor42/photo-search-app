@@ -1,5 +1,4 @@
-// src/App.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Header from './components/Header';
 import SearchForm from './components/SearchForm';
@@ -20,19 +19,22 @@ function App() {
       setPhotos(searchResults);
     }
   };
+  useEffect(() => {
+    // Здесь можно добавить код, который нужно выполнить после загрузки компонента
+    handleSearch('');
+  }, []);
 
   return (
     <div className="App">
       <Header />
       <SearchForm onSearch={handleSearch} />
-      <div className="no-photo">
-        {photos.length >= 0 ? <main>{
-          (
+      <main>
+        {photos.length >= 0 ? (
           photos.map((photo, index) => <Photo key={index} photo={photo} />)
-        )}</main> : (
+        ) : (
           <NoResults />
         )}
-      </div>
+      </main>
       <Footer />
     </div>
   );
