@@ -1,13 +1,14 @@
-// src/components/Photo.js
 import React from 'react';
 
-function Photo({ photo }) {
-  return (
-    <div className="photo">
-      <img src={photo.urls.small} alt={photo.description} />
-      <p>{photo.description}</p>
-    </div>
-  );
+class Photo extends React.Component {
+render() {
+return (
+<div className="photo">
+<img src={this.props.photo.urls.small} alt={this.props.photo.description} />
+<p>{this.props.photo.description}</p>
+</div>
+);
+}
 }
 
 export default Photo;

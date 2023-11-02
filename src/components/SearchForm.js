@@ -1,46 +1,55 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-function SearchForm({ onSearch, onClearPhotos }) {
-  const [searchQuery, setSearchQuery] = useState('');
+class SearchForm extends React.Component {
+  constructor(props) {
+    super(props);
 
-  const handleSearch = () => {
-    onSearch(searchQuery);
-  };
+    this.state = {
+      searchQuery: ''
+    };
+  }
 
-  const handleKeyPress = (event) => {
-    if (event.key === 'Enter') {
-      handleSearch();
+  handleSearch = () => {
+    this.props.onSearch(this.state.searchQuery);
+  }
+
+  handleChange = e => {
+    this.setState({ searchQuery: e.target.value });
+  }
+
+  handleKeyPress = e => {
+    if (e.key === 'Enter') {
+      this.handleSearch();
     }
-  };
+  }
 
-  const clearInput = () => {
-    setSearchQuery('');
-  };
+  handleClear = () => {
+    this.setState({ searchQuery: '' });
+  }
 
-  return (
-    <div className="search-form">
-      <div className="input-container">
+  render() {
+    return (
+      <div className="search-form">
+      	<div className="input-container">
         <input
           autoFocus
           type="text"
           placeholder="Search..."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          onKeyPress={handleKeyPress}
+          value={this.state.searchQuery}
+          onChange={this.handleChange}
+          onKeyPress={this.handleKeyPress}
         />
-        {searchQuery && (
-          <span className="clear-button" onClick={clearInput}>
-            &times;
-          </span>
-        )}
+
+        {this.state.searchQuery && (
+          <span className="clear-button" onClick={this.handleClear}>x</span>
+          )}
+        </div>
+
+        <button onClick={this.handleSearch}>Search</button>
+
       </div>
-      <button onClick={handleSearch}>Search</button>
-     /* <button onClick={handleClearPhotos}>Clear Photos</button>
-     /* const handleClearPhotos = () => {
-    /*document.querySelectorAll('.photo').forEach(photo => photo.style.display = 'none');
-  };
-    </div>
-  );
+    );
+  }
 }
 
 export default SearchForm;
