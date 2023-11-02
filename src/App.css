@@ -214,16 +214,10 @@ a {
   font-size: 36px;
   color: #777;
   cursor: pointer;
-  display: none; /* Скрываем крестик по умолчанию */
 }
 
 .clear-button:hover {
   color: #6499E9; /* Изменяем цвет крестика при наведении */
-}
-
-/* Показываем крестик, когда есть текст в поле ввода */
-.input-container input[type="text"]:not(:placeholder-shown) + .clear-button {
-  display: block;
 }
 
 
